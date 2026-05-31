@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon HomePage </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+    <style>
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 55px;
+        }
+
+        nav {
+            background-color: rgb(31, 47, 75);
+            width: 100%;
+            position: relative;
+
+
+        }
+
+
+
+
+        input {
+
+            padding: 7px 1px;
+            width: 250px;
+
+
+        }
+
+        .search {
+            display: flex;
+            margin: 0 auto;
+            width: 250px;
+            align-items: center;
+            position: relative;
+            top: -30px;
+            cursor: pointer;
+
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            max-width: 100%;
+            overflow-x: scroll;
+            cursor: pointer;
+        }
+
+
+        .box {
+            width: 18%;
+            border: 1px solid #97abc1;
+            border-radius: 15px;
+            padding: 40px;
+            background: rgb(217, 227, 229);
+        }
+
+        .images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 30px;
+            column-gap: 30px;
+            margin-top: 50px;
+        }
+
+        .images img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+
+
+        }
+
+        .search i {
+
+            color: white;
+            background-color: rgb(143, 131, 131);
+
+            width: 150px;
+            height: 35px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+
+
+        }
+
+
+
+
+
+
+
+        .shop i {
+            color: #82898d
+        }
+
+
+
+
+
+
+
+
+        select {
+            width: 100%;
+            background-color: rgb(215, 218, 217);
+            padding: 7px 6px;
+            margin: 0;
+
+
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+
+
+        }
+
+        p
+        {
+          color:black;
+          font-size: larger;
+          font-family:'Times New Roman', Times, serif;
+          text-align: center;
+
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+
+
+        img {
+            width: 140px;
+            height: 50px;
+            top: 20px;
+            margin-left: 15px;
+            margin-top: 15px;
+
+
+        }
+
+
+        .main-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            width: 100%;
+            overflow-x: scroll;
+            cursor: pointer;
+        }
+
+        .category img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+
+        }
+
+        .highlights {
+            display: flex;
+            gap: 30px;
+            overflow-x: scroll;
+            /* enables horizontal scroll */
+            white-space: nowrap;
+            padding: 10px;
+            scroll-behavior: smooth;
+            cursor: pointer;
+        }
+
+        .highlights img {
+            width: 250px;
+            height: 400px;
+            object-fit: cover;
+            flex-shrink: 0;
+            /* prevents images from shrinking */
+        }
+
+        .highlights::-webkit-scrollbar {
+            display: none;
+        }
+
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .main-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .buttons {
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            position: absolute;
+            top: 40px;
+            right: 25px;
+        }
+
+
+
+        #profile {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 1100px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #profile i {
+            font-size: 20px;
+        }
+
+
+
+        #btn {
+            background-color: rgb(229, 210, 185);
+            border: 2px solid black;
+            padding: 7px 8px;
+            cursor: pointer;
+        }
+
+        #btn2 {
+            border: 2px solid black;
+            padding: 7px 8px;
+            margin-right: 30px;
+            cursor: pointer;
+
+        }
+
+
+        .category {
+            display: flex;
+            /* scroll if items become more */
+
+
+
+
+        }
+
+        .cart-wishlist-container {
+            display: flex;
+            gap: 20px;
+
+            /* pushes these buttons to left side */
+            margin-left: 290px;
+            position: relative;
+            top: -55px;
+
+        }
+
+        .cart-btn {
+            background-color: rgb(178, 174, 196);
+            border-radius: 20px;
+            padding: 6px 3px;
+            border: none;
+        }
+
+        .wishlist-btn {
+
+            background-color: rgb(174, 167, 198);
+            border-radius: 20px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <img src="amazon1.jpg" alt="amazon logo">
+
+
+        <div class="search">
+            <select>
+                <option> All </option>
+                <option> Fresh </option>
+                <option> MX Player</option>
+                <option> Self</option>
+                <option>BestSellers</option>
+                <option> Mobile</option>
+                <option>Customer Service</option>
+                <option> Today deals</option>
+                <option> New Releases</option>
+                <option> Prime</option>
+                <option> Fashion</option>
+                <option> Electronics</option>
+                <option>Amazon Pay</option>
+                <option> Home & Kitchen</option>
+            </select>
+
+            <input type="text" id="InputText" placeholder="Search Amazon.in">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-microphone"></i>
+
+        </div>
+
+
+        <div class="cart-wishlist-container">
+
+            <!-- CART BUTTON -->
+            <button class="cart-navbar">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Cart (<span id="cart-count">0</span>)
+
+            </button>
+
+            <!-- WISHLIST BUTTON -->
+            <button class="wishlist-navbar">
+
+                <i class="fa-solid fa-heart"></i>
+
+                Wishlist (<span id="wishlist-count">0</span>)
+
+            </button>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <div id="profile">
+                <i class="fa-solid fa-user"></i>
+                <span id="profile-name">Guest</span>
+            </div>
+
+            <button id="btn">Log Out</button>
+            <button id="btn2">Sign In</button>
+
+        </div>
+
+
+        <ul>
+            <li><a href="#">ALL</a></li>
+            <li><a href="#">Fresh ▼</a></li>
+            <li><a href="#">MX Player</a></li>
+            <li><a href="#">Sell</a></li>
+            <li><a href="#">Bestsellers</a></li>
+            <li><a href="#">Mobile</a></li>
+            <li><a href="#">Customer Service</a></li>
+            <li><a href="#">Today's Deals</a></li>
+            <li><a href="#">New Releases</a></li>
+            <li><a href="#">Prime ▼</a></li>
+            <li><a href="#">Fashion</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Amazon Pay</a></li>
+            <li><a href="#">Home & Kitchen</a></li>
+        </ul>
+    </nav>
+    <div class="topmost">
+        <b>
+            <p> All top Categories for you </p>
+        </b>
+        <div class="category">
+
+            <img src="1.jpg"><span>Live now </span>
+            <img src="2.jpg"><span>Mobiles </span>
+            <img src="4.jpg"><span>Fashion </span>
+            <img src="3.jpg"><span>Electronics </span>
+            <img src="5.jpg"><span> Daily Needs </span>
+            <img src="6.jpg"><span> Cosmetics</span>
+            <img src="7.jpg"><span> Furniture </span>
+            <img src="8.jpg"><span> Books & Stationary </span>
+            <img src="9.jpg"><span> Home Decor</span>
+            <img src="10.jpg"><span>Kids & toys </span>
+            <img src="11.jpg "><span> Sports </span>
+            <img src="12.jpg"><span> Wellness </span>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="container">
+
+        <div class="box">
+
+            <a href="electronics.html" target="_self">
+
+                <p><b> ELECTRONIC ITEMS</b></p>
+                <div class="images">
+
+
+                    <img src="appliance.jpg" alt=" ">
+                    <img src="appliance5.jpg" alt="">
+                    <img src="item.jpg" alt="">
+                    <img src="item2.jpg" alt="">
+
+
+
+                </div>
+            </a>
+        </div>
+
+        <div class="box">
+
+            <a href="cosmetics.html" target="_self">
+
+                <p> <b>COSMETIC PRODUCTS </b> </p>
+                <div class="images">
+
+                    <img src="WhatsApp Image 2026-05-08 at 12.19.49 AM.jpeg" alt=" ">
+                    <img src="WhatsApp Image 2026-05-08 at 12.20.13 AM.jpeg" alt="">
+                    <img src="WhatsApp Image 2026-05-08 at 12.20.31 AM.jpeg"" alt = "">
+               <img src = " WhatsApp Image 2026-05-08 at 12.20.32 AM.jpeg" alt="">
+                </div>
+
+            </a>
+
+        </div>
+
+        <div class="box">
+
+            <a href="decor.html" target="_self">
+
+                <p> <b> HOME DECOR </b></p>
+                <div class="images">
+                    <img src="decor.jpg" alt=" ">
+                    <img src="decor1.jog" alt="">
+                    <img src="decor2.jpg" alt="">
+                    <img src="decor4.jpg" alt="">
+                </div>
+
+            </a>
+
+        </div>
+
+        <div class="box">
+
+            <a href="furniture.html" target="_self">
+
+                <p> <b> FURNITURE </b></p>
+                <div class="images">
+                    <img src="f1.jpg" alt=" ">
+                    <img src="f2.jpg" alt="">
+                    <img src="f3.jpg" alt="">
+                    <img src="f4.jpg" alt="">
+                </div>
+
+            </a>
+        </div>
+    </div>
+
+    <div class="highlights">
+
+        <img src="WhatsApp Image 2026-05-10 at 9.18.22 PM.jpeg" alt="">
+        <img src="WhatsApp Image 2026-05-10 at 9.17.43 PM.jpeg" alt="">
+        <img src="WhatsApp Image 2026-05-10 at 9.17.04 PM.jpeg" alt="">
+        <img src="WhatsApp Image 2026-05-10 at 9.16.38 PM.jpeg" alt="">
+        <img src="WhatsApp Image 2026-05-10 at 9.11.59 PM.jpeg" alt="">
+        <img src="WhatsApp Image 2026-05-10 at 8.31.17 PM.jpeg" alt="">
+        <img src="WhatsApp Image 2026-05-10 at 8.30.08 PM.jpeg" alt="">
+        <img src="WhatsApp Image 2026-05-10 at 8.29.51 PM.jpeg" alt="">
+
+
+
+
+
+
+    </div>
+
+
+    <div class="main-container">
+        <div class="box">
+            <a href="travel.html" target="_self">
+                <p><b> TRAVEL </b></p>
+                <div class="images">
+                    <img src="travel1.jpg" alt=" ">
+                    <img src="travel2.jpg" alt="">
+                    <img src="travel3.jpg" alt="">
+                    <img src="travel4.jpg" alt="">
+                </div>
+            </a>
+
+        </div>
+
+        <div class="box">
+            <a href="books.html" target="_self">
+                <p><b> BOOKS </b></p>
+                <div class="images">
+                    <img src="books1.jpg" alt=" ">
+                    <img src="books2.jpg" alt="">
+                    <img src="books3.jpg" alt="">
+                    <img src="books4.jpg" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div class="box">
+            <a href="pharmacy.html" target="_self">
+                <p><b> Pharmacy & household </b></p>
+                <div class="images">
+                    <img src="pharmacy.jpg" alt=" ">
+                    <img src="pharmacy2.jpg" alt="">
+                    <img src="pharmacy3.jpg" alt="">
+                    <img src="pharmacy4.jpg" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div class="box">
+            <a href="toys.html" target="_self">
+                <p> <b>KIDS TOYS </b></p>
+                <div class="images">
+                    <img src="toys1.jpg" alt=" ">
+                    <img src="toys2.jpg" alt="">
+                    <img src="toys3.jpg" alt="">
+                    <img src="toys4.jpg" alt="">
+                </div>
+            </a>
+        </div>
+
+
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
